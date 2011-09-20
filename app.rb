@@ -9,11 +9,13 @@ set :views, 'views'
 set :public, 'public'
 set :haml, {:format => :html5}
 
-Sinatra.register Barista::Integration::Sinatra if development?
+if development?
+  Sinatra.register Barista::Integration::Sinatra 
 
-Barista.configure do |c|
-  c.root = File.join Sinatra::Application.root, 'scripts'
-  c.output_root = File.join Sinatra::Application.root, 'public', 'scripts'
+  Barista.configure do |c|
+    c.root = File.join Sinatra::Application.root, 'scripts'
+    c.output_root = File.join Sinatra::Application.root, 'public', 'scripts'
+  end
 end
 
 get '/' do
