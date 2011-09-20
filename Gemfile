@@ -4,8 +4,8 @@ gem "sinatra"
 gem "haml"
 gem "sass"
 gem "compass"
-gem "barista"
 
 group :development do
+  gem "barista"
   gem "sinatra-reloader"
 end
